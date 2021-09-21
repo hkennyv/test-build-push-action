@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Setup docker build (breaks outputs.digest)
+        uses: docker/setup-buildx-action@v1
       - name: Build the image
         id: docker_build
         uses: docker/build-push-action@v2
